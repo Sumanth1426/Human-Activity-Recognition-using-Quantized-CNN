@@ -205,3 +205,35 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+
+import cv2
+from preprocess import preprocess_frame
+from predict import load_model, predict
+from utils import get_label
+
+model = load_model("models/model.onnx")
+
+cap = cv2.VideoCapture(0)
+
+while True:
+    ret, frame = cap.read()
+    if not ret:
+        break
+
+    processed = preprocess_frame(frame)
+    class_id, confidence = predict(model, processed)
+
+    label = get_label(class_id)
+
+    cv2.putText(frame, f"{label} ({confidence:.2f})",
+                (20, 40), cv2.FONT_HERSHEY_SIMPLEX,
+                1, (0, 255, 0), 2)
+
+    cv2.imshow("HAR System", frame)
+
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
+
+cap.release()
+cv2.destroyAllWindows()
