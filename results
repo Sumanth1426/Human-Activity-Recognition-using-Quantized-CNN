@@ -1,0 +1,35 @@
+## 📊 Results
+
+The proposed Human Activity Recognition (HAR) system demonstrates strong performance in both accuracy and real-time inference on edge devices.
+
+### 🔹 Model Performance
+- Achieved high training and validation accuracy
+- Successfully learned spatial features for activity classification
+- Generalized well to unseen data
+
+### 🔹 Evaluation Metrics
+- Confusion Matrix used to analyze classification performance
+- ROC Curve shows strong class separation capability
+- Precision–Recall analysis indicates reliable predictions across activities
+
+### 🔹 Real-Time Performance
+- Achieves low latency during live video processing
+- Smooth frame-by-frame prediction using optimized CNN model
+- Stable output using prediction smoothing technique
+
+### 🔹 Impact of Quantization
+- Reduced model size by ~75%
+- Faster inference using INT8 operations
+- Lower memory consumption
+- Maintains acceptable accuracy after optimization
+
+### 🔹 System Output
+- Real-time activity prediction displayed on video feed
+- Shows activity label and confidence score
+- Works efficiently on Raspberry Pi (edge device)
+
+### 🔹 Sample Predictions
+- Sitting → High confidence
+- Running → Accurately detected
+- Eating / Texting → Correct classification in most cases
+
